@@ -29,10 +29,15 @@ void counting_sort(char A[][STRLUNG], int k, int n, int posiz)
         C[(int)(A[j][posiz])-97] = C[(int)(A[j][posiz])-97] + 1;
         printf("C[A[j][posiz]-97 = %d\n",C[A[j][posiz]-97]);
     }
-    for (i = 1; i < k; i++){
-        C[i] = C[i] + C[i-1];
-//        printf("C[%d] = %d\n",i,C[i]);
-    }
+
+//    for (i = 1; i < k; i++){        /*for per ordinamento CRESCENTE*/
+//        C[i] = C[i] + C[i-1];
+////        printf("C[%d] = %d\n",i,C[i]);
+//    }
+
+    for (i = k-2; i >= 0; i--)      /*for per ordinamento DECRESCENTE*/
+        C[i] = C[i] + C[i+1];
+
     for (j = n-1; j >= 0; j--)
     {
         printf("arrivato anche qui\n");
